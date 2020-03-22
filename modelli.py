@@ -3,7 +3,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import numpy as np
 
-# le equazioni differenziali del modello SIR
+
 def deriv_SIR(y, t, N, beta, gamma):
     """ Le equazioni differenziali
         del modello SIR
@@ -50,6 +50,22 @@ def resolve(y0, t, N, beta, gamma):
     S, I, R = ret.T
     return S, I, R
 
+
+def deriv_SEIR(y, t, N, beta, gamma, alpha):
+    S, E, I, R = y
+    dSdt = -beta * S * I 
+    dIdt = alpha *E - gamma * I
+    dEdt = beta * S * I - alpha * E
+    dRdt = gamma * I
+    return dSdt, dEdt, dIdt, dRdt
+
+
+def resolve_SEIR(y0, t, N, beta, gamma, alpha):
+    ret = odeint(deriv_SEIR, y0, t, args=(N, beta, gamma, alpha))
+    S, E, I, R = ret.T
+    return S, E, I, R
+    
+    
 
 def plot(S, I, R, t, title='curve epidemiologiche modello SIR'):
     """ Visualizza le tre curve di soggetti
