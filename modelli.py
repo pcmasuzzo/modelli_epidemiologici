@@ -28,7 +28,7 @@ def deriv_SIR(y, t, N, beta, gamma):
     return dSdt, dIdt, dRdt
 
 
-def resolve(y0, t, N, beta, gamma):
+def resolve_SIR(y0, t, N, beta, gamma):
     """ Integra il sistema di equazioni 
         differenziali ordinarie
         
@@ -53,9 +53,9 @@ def resolve(y0, t, N, beta, gamma):
 
 def deriv_SEIR(y, t, N, beta, gamma, alpha):
     S, E, I, R = y
-    dSdt = -beta * S * I 
-    dIdt = alpha *E - gamma * I
-    dEdt = beta * S * I - alpha * E
+    dSdt = -beta * S * I / N
+    dEdt = beta * S * I / N - alpha * E
+    dIdt = alpha * E - gamma * I
     dRdt = gamma * I
     return dSdt, dEdt, dIdt, dRdt
 
@@ -65,22 +65,4 @@ def resolve_SEIR(y0, t, N, beta, gamma, alpha):
     S, E, I, R = ret.T
     return S, E, I, R
     
-    
-
-def plot(S, I, R, t, title='curve epidemiologiche modello SIR'):
-    """ Visualizza le tre curve di soggetti
-        S(t), I(t) and R(t) nel tempo
-        
-        params:
-        ------
-        S, I, R: soluzioni alle eq. diff.
-    """ 
-    fig = plt.figure()
-    plt.plot(t, S/1000, 'b', alpha=0.5, lw=2, label='suscettibili')
-    plt.plot(t, I/1000, 'r', alpha=0.5, lw=2, label='infetti')
-    plt.plot(t, R/1000, 'g', alpha=0.5, lw=2, label='rimossi')
-    plt.xlabel('tempo [giorni]')
-    plt.ylabel('soggetti [1000s]')
-    plt.legend()
-    plt.title(title)
 
