@@ -11,4 +11,4 @@ Il file Python [`modelli.py`](modelly.py) contiene il codice sorgente utilizzato
 
 ## disclaimer
 Non sono una virologa, né un medico.
-Sono solo un'appassionata di numeri e codice, ho sostenuto un esame di Sistemi Biologici una decina di anni fa, e sono andata a studiarmi tutto di nuovo perché nel frattempo ovviamente non mi ricordavo più nulla.[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pcmasuzzo/modelli_epidemiologici.git/master)
+Sono solo un'appassionata di numeri e codice, ho sostenuto un esame di Sistemi Biologici una decina di anni fa, e sono andata a studiarmi tutto di nuovo perché nel frattempo ovviamente non mi ricordavo più nulla.## lancia questa repo in Binder[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pcmasuzzo/modelli_epidemiologici.git/master)
